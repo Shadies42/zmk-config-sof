@@ -50,7 +50,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
+                <&inc_dec_kp C_NEXT C_PREV>;
         };
 
         SYMBOLS {
@@ -65,11 +65,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&sys_reset  &kp F1     &kp F2                &kp F3                 &kp F4    &kp F5                        &kp F6        &kp F7       &kp F8        &kp F9           &kp F10         &kp DELETE
-&trans      &kp N1     &kp N2                &kp N3                 &kp N4    &kp N5                        &kp NUMBER_6  &kp N7       &kp N8        &kp N9           &kp UNDERSCORE  &kp PIPE
-&trans      &trans     &kp AT                &kp HASH               &kp DLLR  &kp PRCNT                     &kp KP_EQUAL  &kp KP_PLUS  &kp KP_MINUS  &kp KP_MULTIPLY  &kp AMPERSAND   &kp PIPE2
-&trans      &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBRC  &kp RBRC   &trans    &trans   &kp LBKT      &kp RBKT     &kp SEMI      &kp COLON        &kp BSLH        &kp EXCL
-                       &to 0                 &to 4                  &trans    &trans     &trans    &kp F11  &trans        &trans       &trans        &trans
+&sys_reset     &kp F1           &kp F2                &kp F3                 &kp F4     &kp F5                              &kp F6        &kp F7     &kp F8    &kp F9     &kp F10   &kp DELETE
+&trans         &kp N1           &kp N2                &kp N3                 &kp N4     &kp N5                              &kp NUMBER_6  &kp N7     &kp N8    &kp N9     &trans    &kp PIPE
+&kp CAPS       &trans           &kp EQUAL             &kp PLUS               &kp MINUS  &kp KP_MULTIPLY                     &kp LC(S)     &kp LC(C)  &trans    &trans     &trans    &kp PIPE2
+&kp BACKSPACE  &kp NON_US_HASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LBRC   &kp RBRC         &trans    &trans   &kp LBKT      &kp RBKT   &kp SEMI  &kp COLON  &kp BSLH  &trans
+                                &to 0                 &to 4                  &trans     &trans           &trans    &kp F11  &trans        &trans     &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -79,14 +79,14 @@
             display-name = "NAVIGATE";
 
             // ------------------------------------------------------------------------------------------------------------
-            // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
+            // |       |      |      |       |       |      |                |      |      |       |      |       |       |
             // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
             // |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
             // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &trans
+&trans      &trans        &trans        &trans        &trans        &trans                          &trans     &trans    &trans    &trans     &trans   &trans
 &trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
 &trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
 &trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans     &trans    &trans    &trans     &trans   &trans
@@ -116,16 +116,27 @@
             sensor-bindings = <&inc_dec_kp K_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        GAMING {
+        COLEMAK {
+            display-name = "COLEMAK";
+
+            // ------------------------------------------------------------------------------------------------------------
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
+            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
+            // |  TAB  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+
             bindings = <
-&trans     &trans     &kp N1  &kp N2  &kp N3  &kp N4                    &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0
-&trans     &trans     &kp Q   &kp W   &kp E   &kp R                     &trans  &trans  &trans  &trans  &trans  &trans
-&kp LSHFT  &kp MINUS  &kp A   &kp S   &kp D   &kp F                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &trans     &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                      &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&kp GRAVE       &kp N1  &kp N2        &kp N3            &kp N4  &kp N5                                     &kp N6     &kp N7  &kp N8         &kp N9     &kp N0    &kp BACKSPACE
+&kp TAB         &kp Q   &kp W         &kp F             &kp P   &kp G                                      &kp J      &kp L   &kp U          &kp Y      &kp SEMI  &kp PIPE
+&kp BACKSPACE   &kp A   &kp R         &kp S             &kp T   &kp D                                      &kp H      &kp N   &kp E          &kp L      &kp O     &kp SQT
+&kp LEFT_SHIFT  &kp Z   &kp X         &kp C             &kp V   &kp B      &kp C_MUTE    &kp C_PLAY_PAUSE  &kp K      &kp M   &kp COMMA      &kp DOT    &kp FSLH  &kp MINUS
+                        &kp LEFT_ALT  &kp LEFT_COMMAND  &mo 1   &kp SPACE  &kp ENTER     &kp ENTER         &kp SPACE  &mo 2   &kp ASTRK      &kp ESCAPE
             >;
 
-            label = "GAMING";
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_NEXT C_PREV>;
         };
     };
 };
