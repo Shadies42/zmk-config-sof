@@ -16,7 +16,15 @@
 #define ADJUST 3
 
 / {
-
+&pwm0 {
+    compatible = "nordic,nrf-pwm";
+    status = "okay";
+};
+underglow: underglow {
+    compatible = "zmk,underglow";
+    pwms = <&pwm0 0 50000>;
+    label = "RGB Underglow";
+};
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
         compatible = "zmk,conditional-layers";
