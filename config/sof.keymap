@@ -16,9 +16,9 @@
 #define ADJUST 3
 
 / {
-&pwm0 {
-    compatible = "nordic,nrf-pwm";
-    status = "okay";
+    pwm0 {
+        compatible = "nordic,nrf-pwm";
+        status = "okay";
 };
 underglow: underglow {
     compatible = "zmk,underglow";
