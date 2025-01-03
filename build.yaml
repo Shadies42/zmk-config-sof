@@ -22,4 +22,5 @@ include:
     shield: sof_left
   - board: nice_nano_v2
     shield: sof_right
-    artifact-name: sof-uft
+  - board: nice_nano_v2
+    shield: settings_reset
