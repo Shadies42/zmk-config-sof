@@ -46,7 +46,7 @@
                  &kp LGUI &mo LOWER &kp LALT &kp SPACE  &kp Q    &kp SPACE  &mo RAISE  &kp RET   &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&analog_input_0>;
         };
 
         lower_layer {
@@ -66,7 +66,7 @@
                     &trans    &trans      &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&analog_input_0>;
         };
 
         raise_layer {
@@ -85,7 +85,7 @@
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&analog_input_0>;
         };
 
         adjust_layer {
