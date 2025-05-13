@@ -23,7 +23,7 @@
 	#io-channel-cells = <1>;
 };
 
-&zmk_analog_input {
+/ {
 	analog_input_0: analog_input_0 {
 		compatible = "zmk,analog-input";
 		sampling-hz = <100>;
