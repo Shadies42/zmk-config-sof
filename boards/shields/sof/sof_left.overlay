@@ -26,6 +26,7 @@
 / {
 	analog_input_0: analog_input_0 {
 		compatible = "zmk,analog-input";
+		#sensor-binding-cells = <0>;
 		sampling-hz = <100>;
 		x-ch {
 			io-channels = <&adc 5>;  // P0.29
