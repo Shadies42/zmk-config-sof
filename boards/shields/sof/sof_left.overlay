@@ -29,7 +29,7 @@
 		compatible = "zmk,analog-input";
 		sampling-hz = <100>;
 		x-ch {
-			io-channels = <&adc 2>;
+			io-channels = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 			mv-mid = <1630>;
 			mv-min-max = <1600>;
 			mv-deadzone = <10>;
@@ -40,7 +40,7 @@
 			input-code = <INPUT_REL_X>;
 		};
 		y-ch {
-			io-channels = <&adc 3>;
+			io-channels = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 			mv-mid = <1630>;
 			mv-min-max = <1600>;
 			mv-deadzone = <10>;
