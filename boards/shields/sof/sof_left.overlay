@@ -17,11 +17,10 @@
         ;
 };
 
-&left_encoder {
-    status = "okay";
-};
+
 &adc {
 	status = "okay";
+	#io-channel-cells = <1>;
 };
 
 / {
