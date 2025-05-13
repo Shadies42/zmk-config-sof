@@ -23,8 +23,8 @@
 	#io-channel-cells = <1>;
 };
 
-/ {
-	anin0: analog_input_0 {
+&zmk_analog_input {
+	analog_input_0: analog_input_0 {
 		compatible = "zmk,analog-input";
 		sampling-hz = <100>;
 		x-ch {
