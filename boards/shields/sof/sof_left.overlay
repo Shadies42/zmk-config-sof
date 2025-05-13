@@ -52,3 +52,9 @@
         };
     };
 };
+/ {
+    pointing_device {
+        compatible = "zmk,pointing-device";
+        sensors = <&analog_input_0>;
+    };
+};
