@@ -44,48 +44,38 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
             , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-&adc {
-    status = "okay";
-    #io-channel-cells = <1>;
-};
 
-analog_input_0: analog_input_0 {
-    compatible = "zmk,analog-input";
-    #sensor-binding-cells = <0>;
-    sampling-hz = <100>;
+    analog_input_0: analog_input_0 {
+        compatible = "zmk,analog-input";
+        #sensor-binding-cells = <0>;
+        sampling-hz = <100>;
 
-    x-ch {
-        io-channels = <&adc 5>; // P0.29
-        mv-mid = <1600>;
-        mv-min-max = <1200>;
-        mv-deadzone = <1>;
-        scale-multiplier = <1>;
-        scale-divisor = <8>;
-        evt-type = <INPUT_EV_REL>;
-        input-code = <INPUT_REL_X>;
+        x-ch {
+            io-channels = <&adc 5>; // P0.29
+            mv-mid = <1600>;
+            mv-min-max = <1200>;
+            mv-deadzone = <1>;
+            scale-multiplier = <1>;
+            scale-divisor = <8>;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_X>;
+        };
+
+        y-ch {
+            io-channels = <&adc 7>; // P0.31
+            mv-mid = <1600>;
+            mv-min-max = <1200>;
+            mv-deadzone = <1>;
+            scale-multiplier = <1>;
+            scale-divisor = <8>;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_Y>;
+        };
     };
 
-    y-ch {
-        io-channels = <&adc 7>; // P0.31
-        mv-mid = <1600>;
-        mv-min-max = <1200>;
-        mv-deadzone = <1>;
-        scale-multiplier = <1>;
-        scale-divisor = <8>;
-        evt-type = <INPUT_EV_REL>;
-        input-code = <INPUT_REL_Y>;
-    };
-};
-
-pointing_device {
-    compatible = "zmk,pointing-device";
-    sensors = <&analog_input_0>;
-};
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
+    pointing_device {
+        compatible = "zmk,pointing-device";
+        sensors = <&analog_input_0>;
     };
 };
 
@@ -107,6 +97,10 @@ pointing_device {
         inversion-on;
         prechargep = <0x22>;
     };
+};
+&adc {
+    status = "okay";
+    #io-channel-cells = <1>;
 };
 
 
