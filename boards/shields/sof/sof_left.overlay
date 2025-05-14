@@ -33,23 +33,23 @@
         sampling-hz = <100>;
 
         x-ch {
-            io-channels = <&adc 5>;
+            io-channels = <&adc 7>;
             mv-mid = <1600>;
-            mv-min-max = <1200>;
-            mv-deadzone = <1>;               // 🔧 Very low
+            mv-min-max = <1023>;
+            mv-deadzone = <10>;               // 🔧 Very low
             scale-multiplier = <1>;
-            scale-divisor = <8>;             // 🔧 Higher gain
+            scale-divisor = <4>;             // 🔧 Higher gain
             input-code = <INPUT_REL_X>;
             evt-type = <INPUT_EV_REL>;
         };
 
         y-ch {
-            io-channels = <&adc 7>;
+            io-channels = <&adc 5>;
             mv-mid = <1600>;
-            mv-min-max = <1200>;
-            mv-deadzone = <1>;               // 🔧 Very low
+            mv-min-max = <1023>;
+            mv-deadzone = <10>;               // 🔧 Very low
             scale-multiplier = <1>;
-            scale-divisor = <8>;
+            scale-divisor = <4>;
             input-code = <INPUT_REL_Y>;
             evt-type = <INPUT_EV_REL>;
         };
