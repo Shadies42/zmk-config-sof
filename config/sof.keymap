@@ -46,7 +46,6 @@
                  &kp LGUI &mo LOWER &kp LALT &kp SPACE  &kp Q    &kp SPACE  &mo RAISE  &kp RET   &kp RALT  &kp RGUI
             >;
 
-            sensor-bindings = <&analog_input_0>;
         };
 
         lower_layer {
@@ -66,7 +65,6 @@
                     &trans    &trans      &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans
             >;
 
-            sensor-bindings = <&analog_input_0>;
         };
 
         raise_layer {
@@ -85,7 +83,6 @@
                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
             >;
 
-            sensor-bindings = <&analog_input_0>;
         };
 
         adjust_layer {
