@@ -36,9 +36,9 @@
             io-channels = <&adc 5>;
             mv-mid = <1000>;
             mv-min-max = <1023>;
-            mv-deadzone = <10>;               // 🔧 Very low
+            mv-deadzone = <100>;               // 🔧 Very low
             scale-multiplier = <1>;
-            scale-divisor = <1>;             // 🔧 Higher gain
+            scale-divisor = <20>;             // 🔧 Higher gain
             input-code = <INPUT_REL_X>;
             evt-type = <INPUT_EV_REL>;
         };
@@ -47,9 +47,9 @@
             io-channels = <&adc 7>;
             mv-mid = <1000>;
             mv-min-max = <1023>;
-            mv-deadzone = <10>;               // 🔧 Very low
+            mv-deadzone = <100>;               // 🔧 Very low
             scale-multiplier = <1>;
-            scale-divisor = <1>;
+            scale-divisor = <20>;
             input-code = <INPUT_REL_Y>;
             evt-type = <INPUT_EV_REL>;
         };
