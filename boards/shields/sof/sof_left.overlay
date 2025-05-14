@@ -6,7 +6,11 @@
 
 #include "sof.dtsi"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-&kscan0 {
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+	kscan0: kscan {
     col-gpios
         = <&pro_micro 19 GPIO_ACTIVE_HIGH>
         , <&pro_micro 18 GPIO_ACTIVE_HIGH>
@@ -20,13 +24,11 @@
 
 &adc {
 	status = "okay";
-	#io-channel-cells = <1>;
 };
 
 / {
-    analog_input_0: analog_input_0 {
+    anin0: analog_input_0 {
         compatible = "zmk,analog-input";
-        #sensor-binding-cells = <0>;
         sampling-hz = <100>;
 
         x-ch {
@@ -53,8 +55,8 @@
     };
 };
 / {
-    pointing_device {
-        compatible = "zmk,pointing-device";
-        sensors = <&analog_input_0>;
+    joystick_listener {
+        compatible = "zmk,input-listener";
+        device = <&anin0>;
     };
 };
