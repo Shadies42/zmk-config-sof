@@ -5,12 +5,12 @@
  */
 
 #include "sof.dtsi"
-
-&default_transform {
-    col-offset = <6>;
-};
-
-&kscan0 {
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+	kscan0: kscan {
     col-gpios
         = <&pro_micro 10 GPIO_ACTIVE_HIGH>
         , <&pro_micro 16 GPIO_ACTIVE_HIGH>
@@ -19,8 +19,47 @@
         , <&pro_micro 18 GPIO_ACTIVE_HIGH>
         , <&pro_micro 19 GPIO_ACTIVE_HIGH>
         ;
+	};
 };
 
-&right_encoder {
-    status = "okay";
+
+&adc {
+	status = "okay";
 };
+
+/ {
+    anin0: analog_input_0 {
+        compatible = "zmk,analog-input";
+        sampling-hz = <100>;
+
+        x-ch {
+            io-channels = <&adc 5>;
+            mv-mid = <1650>;
+            mv-min-max = <1600>;
+            mv-deadzone = <200>;               // 🔧 Very low
+            scale-multiplier = <1>;
+            scale-divisor = <50>;             // 🔧 Higher gain
+	    invert;
+            input-code = <INPUT_REL_Y>;
+            evt-type = <INPUT_EV_REL>;
+        };
+
+        y-ch {
+            io-channels = <&adc 7>;
+            mv-mid = <1650>;
+            mv-min-max = <1600>;
+            mv-deadzone = <100>;               // 🔧 Very low
+            scale-multiplier = <1>;
+            scale-divisor = <50>;
+            input-code = <INPUT_REL_X>;
+            evt-type = <INPUT_EV_REL>;
+        };
+    };
+};
+/* / {
+*    joystick_listener {
+*        compatible = "zmk,input-listener";
+*        device = <&anin0>;
+*    };
+*};
+*/
